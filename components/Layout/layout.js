@@ -1,4 +1,4 @@
-import RNavbar from "components/RNavbar/rnavbar";
+import RNavbar from "components/RNavbar/rnavbar.js";
 
 import styles from './layout.module.scss';
 
@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 export const Layout = ({ children }) => {
   return (
     <Container fluid className={styles['app-container']}>
-      <Row className="h-100">
+      <Row className="h-100 pt-4">
         <Col md={1} className="px-4 py-5">
           <RNavbar />
         </Col>
