@@ -9,8 +9,8 @@ import Col from 'react-bootstrap/Col';
 export const Layout = ({ children }) => {
   return (
     <Container fluid className={styles['app-container']}>
-      <Row>
-        <Col md={1}>
+      <Row className="h-100">
+        <Col md={1} className="px-4 py-5">
           <RNavbar />
         </Col>
 
