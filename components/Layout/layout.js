@@ -1,4 +1,4 @@
-import RNavbar from "components/rnavbar/rnavbar.js";
+import RNavbar from "components/rnavbar/rnavbar";
 
 import styles from './layout.module.scss';
 
@@ -14,7 +14,7 @@ export const Layout = ({ children }) => {
           <RNavbar />
         </Col>
 
-        <Col md={9}>
+        <Col md={8}>
           <main>{children}</main>
         </Col>
       </Row>
