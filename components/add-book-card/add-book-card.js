@@ -33,7 +33,31 @@ const AddBookCard = () => {
 
         <Row>
           <Col>
-            <FormControl placeholder="Author" className={styles.cardInput} onChange={e => setAuthor(e.target.value)} />
+            <FormControl placeholder="Author" className={styles.cardInput}  value={author} onChange={e => setAuthor(e.target.value)} />
+          </Col>
+        </Row>
+
+        <Row>
+          <Col sm={3}>
+            <FormControl placeholder="Pages" className={styles.cardInput}  value={pages} onChange={e => setPages(e.target.value)} />
+          </Col>
+
+          <Col className="pt-1 text-end">
+            <IconContext.Provider value={{ className: `${styles.check} ${isRead && 'selected'}` }}>
+              <div onClick={() => {
+                setIsRead(isRead => !isRead);
+              }}>
+                {checkIcon}
+              </div>
+            </IconContext.Provider>
+          </Col>
+
+          <Col className="text-end pt-2">
+            <button className="md-btn-1" onClick={async () => {
+              console.log('click');
+            }}>
+              Submit
+            </button>
           </Col>
         </Row>
       </Container>

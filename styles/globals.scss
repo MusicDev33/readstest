@@ -13,3 +13,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.md-btn-1 {
+  border-radius: 999px;
+  padding: 2px 15px;
+  background: #fc638b;
+  outline: none!important;
+  box-shadow: none!important;
+  border: none;
+
+  color: #ffffff;
+
+  transition: 0.3s;
+
+  &:hover {
+    background: #df4971;
+  }
+}

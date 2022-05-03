@@ -25,4 +25,20 @@
     }
   }
 
+  .check {
+    margin-top: 4px;
+    color: #b6b6b6;
+    font-size: 175%;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &.selected {
+      color: #17df64;
+    }
+
+    &:hover:not(.selected) {
+      color: #63e28d;
+    }
+  }
+
 }
