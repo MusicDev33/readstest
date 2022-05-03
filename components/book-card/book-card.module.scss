@@ -20,4 +20,34 @@
     font-size: 95%;
     font-weight: 500;
   }
+
+  .progress {
+    background: #c9c9c9;
+    border-radius: 999px;
+
+    div {
+      background: #fc638b;
+      border-radius: 999px;
+    }
+  }
+
+  .pagesInput {
+    text-align: center;
+
+    border: none;
+    max-width: 45px;
+    outline: none;
+
+    border-bottom: 2px solid #b8b8b8;
+    transition: 0.3s;
+    background: transparent;
+
+    &:hover:not(:focus) {
+      border-color: #ffbacc;
+    }
+
+    &:focus {
+      border-color: #fc638b;
+    }
+  }
 }
