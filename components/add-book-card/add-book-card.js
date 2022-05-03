@@ -43,7 +43,7 @@ const AddBookCard = () => {
           </Col>
 
           <Col className="pt-1 text-end">
-            <IconContext.Provider value={{ className: `${styles.check} ${isRead && 'selected'}` }}>
+            <IconContext.Provider value={{ className: `${styles.check} ${isRead && styles.selected}` }}>
               <div onClick={() => {
                 setIsRead(isRead => !isRead);
               }}>
