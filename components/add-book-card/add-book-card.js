@@ -9,6 +9,7 @@ import { IconContext } from 'react-icons';
 import { FaRegCheckCircle, FaCheckCircle } from 'react-icons/fa';
 
 import styles from './add-book-card.module.scss';
+import { createOneBook } from 'services/book.service';
 
 const AddBookCard = () => {
   const [title, setTitle] = useState('');
@@ -54,7 +55,19 @@ const AddBookCard = () => {
 
           <Col className="text-end pt-2">
             <button className="md-btn-1" onClick={async () => {
-              console.log('click');
+              const data = {
+                pages,
+                title,
+                author,
+                finished: isRead
+              };
+
+              await createOneBook(data);
+
+              setTitle('');
+              setAuthor('');
+              setPages('');
+              setIsRead(false);
             }}>
               Submit
             </button>
