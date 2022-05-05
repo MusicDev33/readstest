@@ -7,7 +7,7 @@ import styles from './book-card.module.scss';
 import { Col, Container, Row, ProgressBar } from 'react-bootstrap';
 
 const BookCard = ({book}) => {
-  const [currentPage, setCurrentPage] = useState(50);
+  const [currentPage, setCurrentPage] = useState(0);
   const [read, setRead] = useState();
 
   // Mutated is whether or not currentPage has been changed.

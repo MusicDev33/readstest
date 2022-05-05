@@ -39,7 +39,7 @@ const AddBookCard = () => {
         </Row>
 
         <Row>
-          <Col sm={3}>
+          <Col sm={4}>
             <FormControl placeholder="Pages" className={styles.cardInput}  value={pages} onChange={e => setPages(e.target.value)} />
           </Col>
 
