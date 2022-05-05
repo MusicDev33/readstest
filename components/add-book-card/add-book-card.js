@@ -18,6 +18,8 @@ const AddBookCard = () => {
   const [isRead, setIsRead] = useState(false);
   const [checkIcon, setCheckIcon] = useState(isRead ? <FaCheckCircle /> : <FaRegCheckCircle />);
 
+  const rowClass = 'mt-1';
+
   useEffect(() => {
     setCheckIcon(isRead ? <FaCheckCircle /> : <FaRegCheckCircle />);
   }, [isRead]);
@@ -26,19 +28,19 @@ const AddBookCard = () => {
   return (
     <div className={styles.addBookCard}>
       <Container className="px-3">
-        <Row>
+        <Row className={rowClass}>
           <Col>
             <FormControl placeholder="Title" className={styles.cardInput} value={title} onChange={e => setTitle(e.target.value)} />
           </Col>
         </Row>
 
-        <Row>
+        <Row className={rowClass}>
           <Col>
             <FormControl placeholder="Author" className={styles.cardInput}  value={author} onChange={e => setAuthor(e.target.value)} />
           </Col>
         </Row>
 
-        <Row>
+        <Row className={rowClass}>
           <Col sm={4}>
             <FormControl placeholder="Pages" className={styles.cardInput}  value={pages} onChange={e => setPages(e.target.value)} />
           </Col>
