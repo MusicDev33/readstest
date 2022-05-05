@@ -1,4 +1,5 @@
 import RNavbar from "components/rnavbar/rnavbar";
+import InfoView from 'components/info-view/info-view';
 
 import styles from './layout.module.scss';
 
@@ -16,6 +17,10 @@ export const Layout = ({ children }) => {
 
         <Col md={8}>
           <main>{children}</main>
+        </Col>
+
+        <Col>
+          <InfoView />
         </Col>
       </Row>
     </Container>
