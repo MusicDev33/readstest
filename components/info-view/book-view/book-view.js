@@ -1,5 +1,7 @@
-const BookView = () => {
+const BookView = ({book}) => {
   return (
-    <div></div>
+    <div>{book.title}</div>
   );
 }
+
+export default BookView;

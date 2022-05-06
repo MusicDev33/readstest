@@ -7,7 +7,7 @@ import { useAppContext } from 'context/state';
 import styles from './book-card.module.scss';
 
 const BookCard = ({book}) => {
-  const { setSelectedBook } = useAppContext();
+  const { setSelectedBook, setInfoViewType } = useAppContext();
 
   const [currentPage, setCurrentPage] = useState(0);
   const [read, setRead] = useState();
@@ -51,7 +51,12 @@ const BookCard = ({book}) => {
       <Container className='px-3'>
         <Row>
           <Col>
-            <div className={styles.title} onClick={() => setSelectedBook(book)}>{book.title}</div>
+            <div className={styles.title} onClick={() => {
+                setSelectedBook(book);
+                setInfoViewType('book');
+              }}>
+              {book.title}
+            </div>
           </Col>
         </Row>
 

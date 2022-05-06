@@ -4,12 +4,15 @@ const AppContext = createContext();
 
 export function AppWrapper({ children }) {
   const [selectedBook, setSelectedBook] = useState();
+  const [infoViewType, setInfoViewType] = useState('');
 
   let sharedState = {
     state: {
-      selectedBook
+      selectedBook,
+      infoViewType
     },
-    setSelectedBook
+    setSelectedBook,
+    setInfoViewType
   }
 
   return (
