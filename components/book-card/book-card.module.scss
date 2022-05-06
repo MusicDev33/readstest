@@ -12,9 +12,17 @@
   }
 
   .title {
+    display: inline-block;
     color: #4a4a4a;
     font-weight: 600;
     font-size: 120%;
+    cursor: pointer;
+    transition: 0.3s;
+
+
+    &:hover {
+      color: #fc638b;
+    }
   }
 
   .author {

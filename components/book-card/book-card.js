@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import { Col, Container, Row, ProgressBar } from 'react-bootstrap';
 
 import { getReadByBookId, createRead, setReadPagesById } from 'services/reads.service';
+import { useAppContext } from 'context/state';
 
 import styles from './book-card.module.scss';
 
-import { Col, Container, Row, ProgressBar } from 'react-bootstrap';
-
 const BookCard = ({book}) => {
+  const { setSelectedBook } = useAppContext();
+
   const [currentPage, setCurrentPage] = useState(0);
   const [read, setRead] = useState();
 
@@ -49,7 +51,7 @@ const BookCard = ({book}) => {
       <Container className='px-3'>
         <Row>
           <Col>
-            <div className={styles.title}>{book.title}</div>
+            <div className={styles.title} onClick={() => setSelectedBook(book)}>{book.title}</div>
           </Col>
         </Row>
 
