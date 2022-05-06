@@ -1,0 +1,45 @@
+.titleCard {
+
+  .title {
+    color: #333;
+    font-weight: 700;
+    font-size: 140%;
+  }
+
+  .author {
+    color: #6e6e6e;
+    font-weight: 500;
+    font-size: 105%;
+  }
+}
+
+.bookIcon {
+  color: #333;
+
+  font-size: 110%;
+  margin-right: 8px;
+}
+
+.descText {
+  width: 100%;
+  transition: 0.3s;
+  resize: none;
+
+  padding: 7px 12px;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+
+  background: #dfdfdf;
+
+  &:hover:not(:focus) {
+    background: #e9e9e9;
+    box-shadow: 0px 2px 4px 2px rgba(68,68,68,0.05);
+  }
+
+  &:focus {
+    background: #fff;
+    resize: vertical;
+    box-shadow: 0px 6px 14px 2px rgba(68,68,68,0.2);
+  }
+}
