@@ -12,6 +12,9 @@ const BookView = ({book}) => {
   const [title, setTitle] = useState(book.title);
   const [author, setAuthor] = useState(book.author);
 
+  const [titleMutated, setTitleMutated] = useState(false);
+  const [authorMutated, setAuthorMutated] = useState(false);
+
   useEffect(() => {
     setTitle(book.title);
     setAuthor(book.author);
@@ -23,14 +26,33 @@ const BookView = ({book}) => {
         <Container>
           <Row>
             <Col>
-              <FormControl className={`${styles.changeForm} ${styles.title}`} value={title} onChange={e => setTitle(e.target.value)} />
+              <FormControl className={`${styles.changeForm} ${styles.title}`} value={title} 
+                onChange={e => {
+                  setTitle(e.target.value);
+                  setTitleMutated(true);
+                }}
+
+                onBlur={() => {
+                  // Send new title to server
+                  setTitleMutated(false);
+                }} />
             </Col>
           </Row>
 
           <Row>
             <Col>
               <span className={styles.author}>
-                <FormControl className={`${styles.changeForm} ${styles.author}`} value={author} onChange={e => setAuthor(e.target.value)} />
+                <FormControl className={`${styles.changeForm} ${styles.author}`} value={author} 
+                  onChange={e => {
+                    setAuthor(e.target.value);
+                    setAuthorMutated(true);
+                  }} 
+                  
+                  onBlur={() => {
+                    // send new author name to server
+                    setAuthorMutated(true);
+                  }}
+                  />
               </span>
             </Col>
           </Row>
