@@ -1,16 +1,16 @@
+import { useEffect, useState } from 'react';
 import { useAppContext } from "context/state";
 
 import BookView from './book-view/book-view';
 
 const InfoView = () => {
   const { selectedBook, infoViewType } = useAppContext().state;
-
-  console.log(selectedBook);
+  const { setSelectedBook } = useAppContext();
 
   let infoComponent = (<div></div>);
 
   if (infoViewType == 'book' && selectedBook) {
-    infoComponent = <BookView book={selectedBook} />
+    infoComponent = <BookView book={selectedBook} />;
   }
 
   return (
