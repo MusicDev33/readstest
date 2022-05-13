@@ -14,6 +14,18 @@ export const getLatestBooks = async (limit) => {
   return returnData;
 }
 
+export const getBookById = async (id) => {
+  let returnData;
+
+  try {
+    const res = await fetch(`${BACKEND}/books/id/${id}`);
+    returnData = await res.json();
+  } catch (e) {
+    returnData = {success: false};
+  }
+  return returnData;
+}
+
 export const createOneBook = async (postBody) => {
   let returnData;
 

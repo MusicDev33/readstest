@@ -74,7 +74,9 @@ const BookCard = ({book}) => {
 
         <Row className="mt-2">
           <Col xxl={5} xl={12}>
-            <button className="md-btn-2 w-100">Synopsis</button>
+            <a href={`/synopsis/${book._id}`}>
+              <button className="md-btn-2 w-100">Synopsis</button>
+            </a>
           </Col>
 
           <Col className="text-center">
