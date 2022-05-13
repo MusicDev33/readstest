@@ -10,7 +10,8 @@ import styles from './book-view.module.scss';
 
 import { changeBookAttr } from 'services/book.service';
 
-// TODO: Add some kind of indicator for sending data to the server, that way I know if the request has been sent for changing the author name etc.
+// TODO: Add some kind of indicator for sending data to the server, 
+// that way I know if the request has been sent for changing the author name etc.
 const BookView = ({book}) => {
   const [title, setTitle] = useState(book.title);
   const [author, setAuthor] = useState(book.author);
