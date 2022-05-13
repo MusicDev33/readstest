@@ -19,14 +19,17 @@
 
 .navbarIcon {
   font-size: 200%;
-  // color: #ff5080;
   color: #129386;
   margin-bottom: 40px;
 
   transition: 0.3s;
   cursor: pointer;
 
-  &:hover {
+  &.active {
     color: #ff5080;
+  }
+
+  &:hover:not(.active) {
+    color: #fca5bd;
   }
 }
