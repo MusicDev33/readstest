@@ -17,9 +17,11 @@ const RNavbar = () => {
       <Row className={rowClass}>
         <Col className="text-center">
           <Link href="/books">
-            <IconContext.Provider value={{ className: styles.navbarIcon }}>
-              <FaBook />
-            </IconContext.Provider>
+            <a>
+              <IconContext.Provider value={{ className: styles.navbarIcon }}>
+                <FaBook />
+              </IconContext.Provider>
+            </a>
           </Link>
         </Col>
       </Row>
@@ -27,19 +29,23 @@ const RNavbar = () => {
       <Row className={rowClass}>
         <Col className="text-center">
           <Link href="/reads">
-            <IconContext.Provider value={{ className: styles.navbarIcon }}>
-              <FaBookmark />
-            </IconContext.Provider>
-          </Link>
+            <a>
+              <IconContext.Provider value={{ className: styles.navbarIcon }}>
+                <FaBookmark />
+              </IconContext.Provider>
+            </a>
+            </Link>
         </Col>
       </Row>
 
       <Row className={rowClass}>
         <Col className="text-center">
           <Link href="/user">
-            <IconContext.Provider value={{ className: styles.navbarIcon }}>
-              <FaUserAlt />
-            </IconContext.Provider>
+            <a>
+              <IconContext.Provider value={{ className: styles.navbarIcon }}>
+                <FaUserAlt />
+              </IconContext.Provider>
+            </a>
           </Link>
         </Col>
       </Row>
