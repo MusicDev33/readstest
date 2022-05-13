@@ -33,7 +33,7 @@ const RNavbar = () => {
         <Col className="text-center">
           <Link href="/reads">
             <a>
-              <IconContext.Provider value={{ className: styles.navbarIcon }}>
+              <IconContext.Provider value={{ className: `${styles.navbarIcon} ${router.pathname == '/reads' ? styles.active : ''}` }}>
                 <FaBookmark />
               </IconContext.Provider>
             </a>
@@ -45,7 +45,7 @@ const RNavbar = () => {
         <Col className="text-center">
           <Link href="/user">
             <a>
-              <IconContext.Provider value={{ className: styles.navbarIcon }}>
+              <IconContext.Provider value={{ className: `${styles.navbarIcon} ${router.pathname == '/user' ? styles.active : ''}` }}>
                 <FaUserAlt />
               </IconContext.Provider>
             </a>
