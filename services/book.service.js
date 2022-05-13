@@ -26,3 +26,21 @@ export const createOneBook = async (postBody) => {
 
   return returnData;
 }
+
+export const changeBookAttr = async (id, attribute, newValue) => {
+  let returnData;
+
+  const postBody = {
+    attribute,
+    newValue
+  }
+
+  try {
+    const res = await axios.put(`${BACKEND}/books/change/${id}`, postBody);
+    returnData = res.data;
+  } catch (e) {
+    returnData = {success: false};
+  }
+
+  return returnData;
+}

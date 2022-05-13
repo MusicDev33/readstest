@@ -82,7 +82,6 @@ const BookCard = ({book}) => {
                   setMutated(true);
                 }}
                 onBlur={() => {
-                  console.log('blur');
                   if (mutated) {
                     setReadPages(currentPage);
                     setMutated(false);
