@@ -50,7 +50,7 @@ const BookCard = ({book}) => {
     <div className={styles.bookCard}>
       <Container className='px-3'>
         <Row>
-          <Col>
+          <Col className="text-truncate">
             <div className={styles.title} onClick={() => {
                 setSelectedBook(book);
                 setInfoViewType('book');
@@ -73,8 +73,12 @@ const BookCard = ({book}) => {
         </Row>
 
         <Row className="mt-2">
-          <Col>
-            <div className="pages text-center">
+          <Col xxl={5} xl={12}>
+            <button className="md-btn-2 w-100">Synopsis</button>
+          </Col>
+
+          <Col className="text-center">
+            <div className={styles.pages}>
               <input className={styles.pagesInput} 
                 value={currentPage} 
                 onChange={e => {

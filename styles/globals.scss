@@ -30,3 +30,21 @@ a {
     background: #df4971;
   }
 }
+
+.md-btn-2 {
+  background: transparent;
+  border-radius: 999px;
+  padding: 2px 15px;
+  outline: none!important;
+  box-shadow: none!important;
+  border: 1px solid #fc638b;
+
+  color: #fc638b;
+
+  transition: 0.3s;
+
+  &:hover {
+    background: #fc638b;
+    color: #fff;
+  }
+}
