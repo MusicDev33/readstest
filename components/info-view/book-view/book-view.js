@@ -67,6 +67,12 @@ const BookView = ({book}) => {
             </Col>
           </Row>
 
+          <Row className="my-2">
+            <Col>
+              <button className="md-btn-1 w-100">Open Synopsis</button>
+            </Col>
+          </Row>
+
           <Row className="mt-2">
             <Col>
               <textarea className={styles.descText}></textarea>
