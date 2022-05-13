@@ -11,3 +11,46 @@
 
   color: #6b6b6b;
 }
+
+.synInput {
+  width: 100%;
+  transition: 0.3s;
+  resize: none;
+
+  padding: 7px 12px;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+
+  background: #dfdfdf;
+
+  min-height: 700px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ffa6be;
+    border-radius: 10px;
+
+    &:hover {
+      background: #fc638b;
+    }
+  }
+
+  &:hover:not(:focus) {
+    background: #e9e9e9;
+    box-shadow: 0px 2px 4px 2px rgba(68,68,68,0.05);
+  }
+
+  &:focus {
+    background: #fff;
+    resize: vertical;
+    box-shadow: 0px 2px 7px 2px rgba(68,68,68,0.2)!important;
+  }
+}

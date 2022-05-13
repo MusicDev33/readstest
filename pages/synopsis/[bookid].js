@@ -57,9 +57,9 @@ const Synopsis = () => {
           </Col>
         </Row>
 
-        <Row>
+        <Row className="mt-3">
           <Col>
-            { bookid }
+            <textarea className={styles.synInput}></textarea>
           </Col>
         </Row>
       </Container>
