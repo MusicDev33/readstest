@@ -30,7 +30,7 @@ const Synopsis = () => {
   });
 
   const [synopsisText, setSynopsisText] = useState('');
-  const [showMarkdown, setShowMarkdown] = useState(false);
+  const [showMarkdown, setShowMarkdown] = useState(true);
 
   const getBook = async () => {
     const bookData = await getBookById(bookid);
