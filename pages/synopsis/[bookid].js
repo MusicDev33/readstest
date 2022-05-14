@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Markdown from 'react-markdown';
 
 import { getBookById } from 'services/book.service';
-import { getSynopsisByBookId } from 'services/synopsis.service';
+import { getSynopsisByBookId, editSynopsisDesc } from 'services/synopsis.service';
 
 import styles from './synopsis.module.scss';
 
@@ -40,6 +40,8 @@ const Synopsis = () => {
   const getSynopsis = async () => {
     const synopsisData = await getSynopsisByBookId(bookid);
     setSynopsis(synopsisData.data);
+    console.log(synopsisData);
+    setSynopsisText(synopsisData.data.description);
   }
 
   useEffect(() => {
@@ -65,7 +67,11 @@ const Synopsis = () => {
   } else {
     synComponent = (
       <textarea className={styles.synInput + ' h-100'} value={synopsisText} onChange={e => setSynopsisText(e.target.value)}
-                onFocus={() => {setShowMarkdown(false)}} onBlur={() => {setShowMarkdown(true)}}>
+                onFocus={() => {setShowMarkdown(false)}} 
+                onBlur={() => {
+                  setShowMarkdown(true);
+                  editSynopsisDesc(bookid, synopsisText);
+                }}>
       </textarea>
     );
   }
