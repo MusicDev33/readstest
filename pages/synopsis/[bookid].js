@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -14,6 +14,7 @@ import { getSynopsisByBookId } from 'services/synopsis.service';
 import styles from './synopsis.module.scss';
 
 const Synopsis = () => {
+  const synInput = useRef(null);
   const router = useRouter();
   const { bookid } = router.query;
 
@@ -33,10 +34,12 @@ const Synopsis = () => {
 
   const getBook = async () => {
     const bookData = await getBookById(bookid);
-
-    console.log(bookData);
-
     setBook(bookData.data);
+  }
+
+  const getSynopsis = async () => {
+    const synopsisData = await getSynopsisByBookId(bookid);
+    setSynopsis(synopsisData.data);
   }
 
   useEffect(() => {
@@ -44,6 +47,7 @@ const Synopsis = () => {
     // @Next, why do I have to do this??? ughhh
     if (router.isReady) {
       getBook();
+      getSynopsis();
     }
   }, [router.isReady]);
 
@@ -51,7 +55,10 @@ const Synopsis = () => {
 
   if (showMarkdown) {
     synComponent = (
-      <div className={styles.synMd + ' h-100'} onClick={() => {setShowMarkdown(false)}}>
+      <div className={styles.synMd + ' h-100'} 
+        onClick={() => {
+          setShowMarkdown(false);
+      }}>
         <Markdown>{synopsisText}</Markdown>
       </div>
     );
