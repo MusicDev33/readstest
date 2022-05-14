@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import Markdown from 'react-markdown';
+
 import { getBookById } from 'services/book.service';
 import { getSynopsisByBookId } from 'services/synopsis.service';
 
@@ -26,6 +28,9 @@ const Synopsis = () => {
     description: ''
   });
 
+  const [synopsisText, setSynopsisText] = useState('');
+  const [showMarkdown, setShowMarkdown] = useState(false);
+
   const getBook = async () => {
     const bookData = await getBookById(bookid);
 
@@ -41,6 +46,22 @@ const Synopsis = () => {
       getBook();
     }
   }, [router.isReady]);
+
+  let synComponent;
+
+  if (showMarkdown) {
+    synComponent = (
+      <div className={styles.synMd + ' h-100'} onClick={() => {setShowMarkdown(false)}}>
+        <Markdown>{synopsisText}</Markdown>
+      </div>
+    );
+  } else {
+    synComponent = (
+      <textarea className={styles.synInput + ' h-100'} value={synopsisText} onChange={e => setSynopsisText(e.target.value)}
+                onFocus={() => {setShowMarkdown(false)}} onBlur={() => {setShowMarkdown(true)}}>
+      </textarea>
+    );
+  }
 
   return (
     <div>
@@ -58,10 +79,11 @@ const Synopsis = () => {
         </Row>
 
         <Row className="mt-3">
-          <Col>
-            <textarea className={styles.synInput}></textarea>
+          <Col className={styles.synComponent}>
+            {synComponent}
           </Col>
         </Row>
+
       </Container>
     </div>
   );

@@ -12,6 +12,15 @@
   color: #6b6b6b;
 }
 
+.synComponent {
+  min-height: 700px;
+}
+
+.synMd {
+  cursor: pointer;
+  padding: 7px 12px;
+}
+
 .synInput {
   width: 100%;
   transition: 0.3s;
@@ -23,8 +32,6 @@
   outline: none;
 
   background: #dfdfdf;
-
-  min-height: 700px;
 
   &::-webkit-scrollbar {
     width: 4px;
