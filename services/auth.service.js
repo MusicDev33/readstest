@@ -1,4 +1,6 @@
 import axios from 'axios';
+import cookie from 'cookie';
+
 import { BACKEND } from 'env';
 
 export const getAuthToken = async (password) => {
@@ -15,4 +17,8 @@ export const getAuthToken = async (password) => {
     returnData = {success: false};
   }
   return returnData;
+}
+
+export const parseCookies = (req) => {
+  return cookie.parse(req ? req.headers.cookie || '' : document.cookie); 
 }

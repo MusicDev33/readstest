@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useCookies } from 'react-cookie';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,6 +9,10 @@ import Col from 'react-bootstrap/Col';
 import { getAuthToken } from 'services/auth.service';
 
 const Login = () => {
+  const router = useRouter();
+
+  const [cookie, setCookie] = useCookies(['auth-token']);
+
   const defaultPassClass = 'md-form-1 mt-5';
 
   const [password, setPassword] = useState('');
@@ -26,10 +32,16 @@ const Login = () => {
                   }
 
                   getAuthToken(password).then(res => {
-                    if (!res.success) {
-                      setPassFieldClass(`${defaultPassClass} fail shake-anim`);
+                    if (res.success) {
+                      // router.replace('/books');
+                      setCookie('auth-token', JSON.stringify({token: res.data}), {
+                        path: '/',
+                        maxAge: 3600 * 24 * 30,
+                        sameSite: true
+                      });
                     }
-                    console.log(res.data);
+
+                    setPassFieldClass(`${defaultPassClass} fail shake-anim`);
                   });
                 }
               }} />
