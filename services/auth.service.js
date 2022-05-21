@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BACKEND } from 'env';
 
-export const getAuthtoken = async (password) => {
+export const getAuthToken = async (password) => {
   let returnData;
 
   const body = {
