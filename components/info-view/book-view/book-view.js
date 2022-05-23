@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -18,6 +19,9 @@ const BookView = ({book}) => {
 
   const [titleMutated, setTitleMutated] = useState(false);
   const [authorMutated, setAuthorMutated] = useState(false);
+
+  const [cookies, _] = useCookies(['auth-token']);
+  const token = cookies['auth-token'];
 
   useEffect(() => {
     setTitle(book.title);
@@ -39,7 +43,7 @@ const BookView = ({book}) => {
                 onBlur={() => {
                   // Send new title to server
                   if (titleMutated) {
-                    changeBookAttr(book._id, 'title', title);
+                    changeBookAttr(book._id, 'title', title, token);
                     setTitleMutated(false);
                   }
                 }} />
@@ -58,7 +62,7 @@ const BookView = ({book}) => {
                   onBlur={() => {
                     // send new author name to server
                     if (authorMutated) {
-                      changeBookAttr(book._id, 'author', author);
+                      changeBookAttr(book._id, 'author', author, token);
                       setAuthorMutated(true);
                     }
                   }}
