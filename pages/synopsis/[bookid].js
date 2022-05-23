@@ -13,7 +13,19 @@ import { getSynopsisByBookId, editSynopsisDesc } from 'services/synopsis.service
 
 import styles from './synopsis.module.scss';
 
-const Synopsis = () => {
+import { parseCookies } from 'services/auth.service';
+
+export const getServerSideProps = ({ req }) => {
+  const cookies = parseCookies(req);
+
+  return {
+    props: {
+      token: cookies['auth-token']
+    }
+  }
+}
+
+const Synopsis = ({ token }) => {
   const synInput = useRef(null);
   const router = useRouter();
   const { bookid } = router.query;
@@ -33,12 +45,12 @@ const Synopsis = () => {
   const [showMarkdown, setShowMarkdown] = useState(true);
 
   const getBook = async () => {
-    const bookData = await getBookById(bookid);
+    const bookData = await getBookById(bookid, token);
     setBook(bookData.data);
   }
 
   const getSynopsis = async () => {
-    const synopsisData = await getSynopsisByBookId(bookid);
+    const synopsisData = await getSynopsisByBookId(bookid, token);
     setSynopsis(synopsisData.data);
     console.log(synopsisData);
     setSynopsisText(synopsisData.data.description);
@@ -70,7 +82,7 @@ const Synopsis = () => {
                 onFocus={() => {setShowMarkdown(false)}} 
                 onBlur={() => {
                   setShowMarkdown(true);
-                  editSynopsisDesc(bookid, synopsisText);
+                  editSynopsisDesc(bookid, synopsisText, token);
                 }}>
       </textarea>
     );

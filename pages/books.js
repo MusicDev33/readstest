@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col';
 
 import { parseCookies } from 'services/auth.service';
 
-export const getServerSideProps = ({ req, res }) => {
+export const getServerSideProps = ({ req }) => {
   const cookies = parseCookies(req);
 
   return {
@@ -28,7 +28,10 @@ const Books = ({ token }) => {
     const fetchData = async () => {
       const res = await getLatestBooks(30, token);
       console.log(res);
-      setBooks(res.data);
+
+      if (res.success) {
+        setBooks(res.data);
+      }
     }
 
     fetchData();
@@ -40,12 +43,12 @@ const Books = ({ token }) => {
         <Row>
           {books.map(book => (
             <Col sm={4} className="py-2" key={book.title}>
-              <BookCard book={book} />
+              <BookCard book={book} token={token} />
             </Col>
           ))}
 
           <Col sm={4} className="py-2">
-            <AddBookCard />
+            <AddBookCard token={token} />
           </Col>
         </Row>
       </Container>

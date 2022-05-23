@@ -14,11 +14,11 @@ export const getLatestBooks = async (limit, token) => {
   return returnData;
 }
 
-export const getBookById = async (id) => {
+export const getBookById = async (id, token) => {
   let returnData;
 
   try {
-    const res = await fetch(`${BACKEND}/books/id/${id}`);
+    const res = await fetch(`${BACKEND}/books/id/${id}?token=${token}`);
     returnData = await res.json();
   } catch (e) {
     returnData = {success: false};
@@ -26,11 +26,11 @@ export const getBookById = async (id) => {
   return returnData;
 }
 
-export const createOneBook = async (postBody) => {
+export const createOneBook = async (postBody, token) => {
   let returnData;
 
   try {
-    const res = await axios.post(`${BACKEND}/books/create`, postBody);
+    const res = await axios.post(`${BACKEND}/books/create?token=${token}`, postBody);
     returnData = res.data;
   } catch (e) {
     returnData = {success: false};
@@ -39,7 +39,7 @@ export const createOneBook = async (postBody) => {
   return returnData;
 }
 
-export const changeBookAttr = async (id, attribute, newValue) => {
+export const changeBookAttr = async (id, attribute, newValue, token) => {
   let returnData;
 
   const postBody = {
@@ -48,7 +48,7 @@ export const changeBookAttr = async (id, attribute, newValue) => {
   }
 
   try {
-    const res = await axios.put(`${BACKEND}/books/change/${id}`, postBody);
+    const res = await axios.put(`${BACKEND}/books/change/${id}?token=${token}`, postBody);
     returnData = res.data;
   } catch (e) {
     returnData = {success: false};

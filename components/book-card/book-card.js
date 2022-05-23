@@ -6,7 +6,7 @@ import { useAppContext } from 'context/state';
 
 import styles from './book-card.module.scss';
 
-const BookCard = ({book}) => {
+const BookCard = ({book, token}) => {
   const { setSelectedBook, setInfoViewType } = useAppContext();
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -16,7 +16,7 @@ const BookCard = ({book}) => {
   const [mutated, setMutated] = useState(false);
 
   const getRead = async () => {
-    const readData = await getReadByBookId(book._id);
+    const readData = await getReadByBookId(book._id, token);
     console.log(readData);
     if (readData.success) {
       setRead(readData.data);
@@ -26,13 +26,13 @@ const BookCard = ({book}) => {
 
   const setReadPages = async (currentPage) => {
     if (!read) {
-      const res = await createRead(book._id, currentPage);
+      const res = await createRead(book._id, currentPage, token);
       console.log(res);
 
       return;
     }
 
-    const res = await setReadPagesById(book._id, currentPage);
+    const res = await setReadPagesById(book._id, currentPage, token);
     console.log(res);
   }
 

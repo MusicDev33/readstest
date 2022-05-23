@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { BACKEND } from 'env';
 
-export const getSynopsisByBookId = async (bookId) => {
+export const getSynopsisByBookId = async (bookId, token) => {
   let returnData;
 
   try {
-    const res = await axios.get(`${BACKEND}/synopses/bookid/${bookId}`);
+    const res = await axios.get(`${BACKEND}/synopses/bookid/${bookId}?token=${token}`);
     returnData = res.data;
   } catch (e) {
     returnData = {success: false};
@@ -14,11 +14,11 @@ export const getSynopsisByBookId = async (bookId) => {
   return returnData;
 }
 
-export const editSynopsisDesc = async (bookId, desc) => {
+export const editSynopsisDesc = async (bookId, desc, token) => {
   let returnData;
 
   try {
-    const res = await axios.put(`${BACKEND}/synopses/description/${bookId}`, {description: desc});
+    const res = await axios.put(`${BACKEND}/synopses/description/${bookId}?token=${token}`, {description: desc});
     returnData = res.data;
   } catch (e) {
     returnData = {success: false};

@@ -11,7 +11,7 @@ import { FaRegCheckCircle, FaCheckCircle } from 'react-icons/fa';
 import styles from './add-book-card.module.scss';
 import { createOneBook } from 'services/book.service';
 
-const AddBookCard = () => {
+const AddBookCard = ({ token }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [pages, setPages] = useState('');
@@ -64,7 +64,7 @@ const AddBookCard = () => {
                 finished: isRead
               };
 
-              await createOneBook(data);
+              await createOneBook(data, token);
 
               setTitle('');
               setAuthor('');
