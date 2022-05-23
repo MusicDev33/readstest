@@ -2,7 +2,7 @@ import '../styles/globals.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Layout } from 'components/layout/layout';
 import { AppWrapper } from 'context/state';
-import { CoookiesProvider } from 'react-cookie';
+import { CookiesProvider } from 'react-cookie';
 
 import Head from 'next/head';
 

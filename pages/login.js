@@ -34,7 +34,7 @@ const Login = () => {
                   getAuthToken(password).then(res => {
                     if (res.success) {
                       // router.replace('/books');
-                      setCookie('auth-token', JSON.stringify({token: res.data}), {
+                      setCookie('auth-token', res.data, {
                         path: '/',
                         maxAge: 3600 * 24 * 30,
                         sameSite: true

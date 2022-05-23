@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import { getLatestBooks } from 'services/book.service';
 
 import BookCard from 'components/book-card/book-card';
@@ -8,12 +9,24 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Books = () => {
+import { parseCookies } from 'services/auth.service';
+
+export const getServerSideProps = ({ req, res }) => {
+  const cookies = parseCookies(req);
+
+  return {
+    props: {
+      token: cookies['auth-token']
+    }
+  }
+}
+
+const Books = ({ token }) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getLatestBooks(30);
+      const res = await getLatestBooks(30, token);
       console.log(res);
       setBooks(res.data);
     }

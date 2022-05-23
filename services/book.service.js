@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { BACKEND } from 'env';
 
-export const getLatestBooks = async (limit) => {
+export const getLatestBooks = async (limit, token) => {
   let returnData;
 
   try {
-    const res = await fetch(`${BACKEND}/books?limit=${limit}`);
+    const res = await fetch(`${BACKEND}/books?limit=${limit}&token=${token}`);
     returnData = res.json();
   } catch (e) {
     returnData = { success: false };
