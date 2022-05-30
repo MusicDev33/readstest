@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -26,7 +26,6 @@ export const getServerSideProps = ({ req }) => {
 }
 
 const Synopsis = ({ token }) => {
-  const synInput = useRef(null);
   const router = useRouter();
   const { bookid } = router.query;
 
@@ -35,10 +34,6 @@ const Synopsis = ({ token }) => {
     author: '',
     title: '',
     finished: false
-  });
-  const [synopsis, setSynopsis] = useState({
-    bookId: '',
-    description: ''
   });
 
   const [synopsisText, setSynopsisText] = useState('');
@@ -51,8 +46,7 @@ const Synopsis = ({ token }) => {
 
   const getSynopsis = async () => {
     const synopsisData = await getSynopsisByBookId(bookid, token);
-    setSynopsis(synopsisData.data);
-    console.log(synopsisData);
+
     setSynopsisText(synopsisData.data.description);
   }
 
@@ -89,28 +83,26 @@ const Synopsis = ({ token }) => {
   }
 
   return (
-    <div>
-      <Container>
-        <Row>
-          <Col>
-            <div className={styles.title}>{book.title}</div>
-          </Col>
-        </Row>
+    <Container>
+      <Row>
+        <Col>
+          <div className={styles.title}>{book.title}</div>
+        </Col>
+      </Row>
 
-        <Row>
-          <Col>
-            <div className={styles.author}>{book.author}</div>
-          </Col>
-        </Row>
+      <Row>
+        <Col>
+          <div className={styles.author}>{book.author}</div>
+        </Col>
+      </Row>
 
-        <Row className="mt-3">
-          <Col className={styles.synComponent}>
-            {synComponent}
-          </Col>
-        </Row>
+      <Row className="mt-3">
+        <Col className={styles.synComponent}>
+          {synComponent}
+        </Col>
+      </Row>
 
-      </Container>
-    </div>
+    </Container>
   );
 }
 
