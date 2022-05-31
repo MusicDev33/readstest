@@ -73,7 +73,7 @@ const Synopsis = ({ token }) => {
   } else {
     synComponent = (
       <textarea className={styles.synInput + ' h-100'} value={synopsisText} onChange={e => setSynopsisText(e.target.value)}
-                onFocus={() => {setShowMarkdown(false)}} 
+                onFocus={() => {setShowMarkdown(false)}}
                 onBlur={() => {
                   setShowMarkdown(true);
                   editSynopsisDesc(bookid, synopsisText, token);
