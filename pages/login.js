@@ -33,12 +33,15 @@ const Login = () => {
 
                   getAuthToken(password).then(res => {
                     if (res.success) {
-                      // router.replace('/books');
                       setCookie('auth-token', res.data, {
                         path: '/',
                         maxAge: 3600 * 24 * 30,
                         sameSite: true
                       });
+
+                      router.replace('/books');
+
+                      return;
                     }
 
                     setPassFieldClass(`${defaultPassClass} fail shake-anim`);

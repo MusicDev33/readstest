@@ -14,6 +14,15 @@ import { parseCookies } from 'services/auth.service';
 export const getServerSideProps = ({ req }) => {
   const cookies = parseCookies(req);
 
+  if (!cookies['auth-token']) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false
+      }
+    }
+  }
+
   return {
     props: {
       token: cookies['auth-token']
@@ -27,7 +36,6 @@ const Books = ({ token }) => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await getLatestBooks(30, token);
-      console.log(res);
 
       if (res.success) {
         setBooks(res.data);
