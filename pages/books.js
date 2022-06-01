@@ -46,21 +46,19 @@ const Books = ({ token }) => {
   }, []);
 
   return (
-    <div>
-      <Container>
-        <Row>
-          {books.map(book => (
-            <Col sm={4} className="py-2" key={book.title}>
-              <BookCard book={book} token={token} />
-            </Col>
-          ))}
-
-          <Col sm={4} className="py-2">
-            <AddBookCard token={token} />
+    <Container fluid className="px-2">
+      <Row>
+        {books.map(book => (
+          <Col sm={4} className="py-2" key={book.title}>
+            <BookCard book={book} token={token} />
           </Col>
-        </Row>
-      </Container>
-    </div>
+        ))}
+
+        <Col sm={4} className="py-2">
+          <AddBookCard token={token} />
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

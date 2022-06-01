@@ -11,15 +11,15 @@ export const Layout = ({ children }) => {
   return (
     <Container fluid className={styles['app-container']}>
       <Row className="h-100 pt-4">
-        <Col md={1} className="px-4 py-5">
+        <Col md={1} className="px-4 py-5 d-none d-md-block">
           <RNavbar />
         </Col>
 
-        <Col md={8}>
+        <Col xs={12} md={8} className="px-0">
           <main>{children}</main>
         </Col>
 
-        <Col>
+        <Col className="d-none d-md-block">
           <InfoView />
         </Col>
       </Row>

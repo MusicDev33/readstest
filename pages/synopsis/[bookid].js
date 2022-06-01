@@ -18,6 +18,15 @@ import { parseCookies } from 'services/auth.service';
 export const getServerSideProps = ({ req }) => {
   const cookies = parseCookies(req);
 
+  if (!cookies['auth-token']) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false
+      }
+    }
+  }
+
   return {
     props: {
       token: cookies['auth-token']
