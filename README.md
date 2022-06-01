@@ -1,3 +1,11 @@
+### Note From Me
+
+Looking at the data flow for this project, it would be easy to conclude that client-side rendering would've been the right choice for the project,
+and that I shouldn't be using Next...This is correct. I just wanted to try out Next.js and ended up building this and well, here we are. There
+are some weird workarounds I've used, but the downsides of SSR haven't really been too big of a problem. If the app had a larger scope, I'd
+probably switch over, but it's small enough that it's really not a problem.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
