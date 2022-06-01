@@ -37,7 +37,7 @@ const Synopsis = ({ token }) => {
   });
 
   const [synopsisText, setSynopsisText] = useState('');
-  const [showMarkdown, setShowMarkdown] = useState(true);
+  const [showMarkdown, setShowMarkdown] = useState(false);
 
   const getBook = async () => {
     const bookData = await getBookById(bookid, token);
@@ -47,7 +47,14 @@ const Synopsis = ({ token }) => {
   const getSynopsis = async () => {
     const synopsisData = await getSynopsisByBookId(bookid, token);
 
+    if (!synopsisData.success || !synopsisData.data.description) {
+      return;
+    }
+
+    console.log(synopsisData);
+
     setSynopsisText(synopsisData.data.description);
+    setShowMarkdown(true);
   }
 
   useEffect(() => {
