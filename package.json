@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 3020",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update": "git pull origin main && npm run build && pm2 restart reads"
   },
   "dependencies": {
     "axios": "^0.27.2",
