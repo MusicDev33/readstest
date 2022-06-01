@@ -94,6 +94,13 @@ a {
   perspective: 1000px;
 }
 
+blockquote {
+  color: #777777!important;
+  margin: 0!important;
+  padding-left: 3em!important;
+  border-left: 0.5em #eee solid!important;
+}
+
 // keyframes
 
 @keyframes shake {
