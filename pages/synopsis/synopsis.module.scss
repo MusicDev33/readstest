@@ -18,6 +18,26 @@
 
 .synMd {
   cursor: pointer;
+  overflow-y: scroll;
+
+  max-height: 700px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ffa6be;
+    border-radius: 10px;
+
+    &:hover {
+      background: #fc638b;
+    }
+  }
 }
 
 .synInput {
