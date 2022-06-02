@@ -33,6 +33,15 @@ export const getServerSideProps = ({ req }) => {
 const Books = ({ token }) => {
   const [books, setBooks] = useState([]);
 
+  const addNewBook = (book) => {
+    const newBooks = books;
+    newBooks.push(book);
+
+    console.log('test')
+
+    setBooks(newBooks);
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await getLatestBooks(30, token);
@@ -55,7 +64,7 @@ const Books = ({ token }) => {
         ))}
 
         <Col sm={4} className="py-2">
-          <AddBookCard token={token} />
+          <AddBookCard token={token} setBooks={setBooks} />
         </Col>
       </Row>
     </Container>
