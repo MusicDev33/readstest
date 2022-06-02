@@ -58,7 +58,6 @@ const MobileLogin = () => {
 
               rhythmData.push(time - lastClickTime);
               lastClickTime = time;
-              console.log(rhythmData);
             }}>
           </div>
         </Col>
