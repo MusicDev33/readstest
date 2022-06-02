@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { getAuthToken } from 'services/auth.service';
+import MobileLogin from 'components/mobile-login/mobile-login';
 
 const Login = () => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const Login = () => {
 
   return (
     <div>
-      <Container>
+      <Container className="d-none d-md-block">
         <Row className="justify-content-center">
           <Col xs={6}>
             <input type="password" value={password} onChange={e => {setPassword(e.target.value)}} className={passFieldClass} placeholder="Enter Password"
@@ -31,7 +32,7 @@ const Login = () => {
                     setPassFieldClass(defaultPassClass);
                   }
 
-                  getAuthToken(password).then(res => {
+                  getAuthToken(`def::${password}`).then(res => {
                     if (res.success) {
                       setCookie('auth-token', res.data, {
                         path: '/',
@@ -51,6 +52,10 @@ const Login = () => {
           </Col>
         </Row>
       </Container>
+
+      <div className="d-md-none">
+        <MobileLogin />
+      </div>
     </div>
   );
 }

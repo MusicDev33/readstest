@@ -1,0 +1,33 @@
+.loginContainer {
+  height: 100vh;
+}
+
+.icon {
+  display: inline-block;
+  background: rgb(211, 74, 188);
+	border-radius: 50%;
+	margin: 30px;
+
+  $dimension: 60px;
+	height: $dimension;
+	width: $dimension;
+
+  transition: 0.1s;
+
+	box-shadow: 0 0 0 0 rgb(216, 78, 193);
+
+  &.anim {
+    animation: pulse 1s infinite;
+
+    pointer-events: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(211, 74, 188, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 60px rgba(211, 74, 188, 0);
+  }
+}
