@@ -14,6 +14,19 @@ export const getSynopsisByBookId = async (bookId, token) => {
   return returnData;
 }
 
+export const getSynopsisById = async (synId) => {
+  let returnData;
+
+  try {
+    const res = await axios.get(`${BACKEND}/synopses/id/${synId}`);
+    returnData = res.data;
+  } catch (e) {
+    returnData = {success: false};
+  }
+
+  return returnData;
+}
+
 export const editSynopsisDesc = async (bookId, desc, token) => {
   let returnData;
 
