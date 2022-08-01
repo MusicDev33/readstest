@@ -56,13 +56,13 @@ const Synopsis = ({ token }) => {
   const getSynopsis = async () => {
     const synopsisData = await getSynopsisByBookId(bookid, token);
 
-    if (!synopsisData.success || !synopsisData.data.synopsis.description) {
+    if (!synopsisData.success || !synopsisData.data.description) {
       return;
     }
 
     console.log(synopsisData);
 
-    setSynopsisText(synopsisData.data.synopsis.description);
+    setSynopsisText(synopsisData.data.description);
     setShowMarkdown(true);
   }
 
