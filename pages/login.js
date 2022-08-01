@@ -21,7 +21,7 @@ const Login = () => {
 
   return (
     <div>
-      <Container className="d-none d-md-block">
+      <Container>
         <Row className="justify-content-center">
           <Col xs={6}>
             <input type="password" value={password} onChange={e => {setPassword(e.target.value)}} className={passFieldClass} placeholder="Enter Password"
@@ -52,10 +52,6 @@ const Login = () => {
           </Col>
         </Row>
       </Container>
-
-      <div className="d-md-none">
-        <MobileLogin />
-      </div>
     </div>
   );
 }
